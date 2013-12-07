@@ -1,7 +1,8 @@
-from flask import Flask
+import flask
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
+app.debug = True
 
 @app.route('/')
 def index():
-    return "<span style='color:red'>I am app 1</span>"
+    return flask.render_template('index.html')
