@@ -1,6 +1,9 @@
 angular.module('RobbleControllers').
 controller("ChatController", ['$scope', '$timeout', '$window', '$element', function($scope, $timeout, $window, $element) {
+    var roomId = $window.location.pathname.split('/').pop();
+
     $scope.messages = [];
+    $scope.userName = localStorage.getItem('userName for room ' + roomId);
     $scope.setupNeeded = true;
 
     var timeout;
@@ -8,7 +11,7 @@ controller("ChatController", ['$scope', '$timeout', '$window', '$element', funct
     $scope.setupComplete = function() {
         $scope.setupNeeded = false;
         $scope.readyToChat = true;
-        var roomId = $window.location.pathname.split('/').pop();
+        localStorage.setItem('userName for room ' + roomId, $scope.userName);
         firebase = new Firebase('https://robblebase.firebaseio-demo.com/' + roomId);
         firebase.on('child_added', function(snapshot) {
             var message = snapshot.val();
