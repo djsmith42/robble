@@ -24,7 +24,7 @@
     </div>
     <ul class="chat-list" ng-show="readyToChat">
       <li ng-repeat="message in messages">
-        {{message.name}}: {{message.text}}
+        <b>{{message.name}}:</b> {{message.text}}
       </li>
     </ul>
     <div class="input-area" ng-show="readyToChat">
