@@ -28,7 +28,9 @@
       </li>
     </ul>
     <div class="input-area" ng-show="readyToChat">
-      <input type="text" class="text" focus-on="readyToChat" ng-model="textToSend" placeholder="Chat here" ui-keypress="{13: 'sendMessage()'}" />
+      <div class="input-container">
+        <input type="text" class="text" focus-on="readyToChat" ng-model="textToSend" placeholder="Chat here" ui-keypress="{13: 'sendMessage()'}" />
+      </div>
       <button class="btn btn-primary" ng-click="sendMessage()">Send</button>
     </div>
   </body>
